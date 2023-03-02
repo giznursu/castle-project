@@ -9,16 +9,16 @@ var rollbar = new Rollbar({
   captureUncaught: true,
   captureUnhandledRejections: true,
 })
-
+princess = ["gizem","gamze"]
 app.use(express.json())
 app.use(cors())
 app.use(express.static("public"))
 
-const princess = ['Elizabeth', 'Diana', 'Victoria']
-rollbar.log("site is visited")
+
 
 app.get('/',(req,res)=>{
     res.status(200).sendFile(path.join(__dirname, '../public/index.html'))
+    rollbar.log("site is visited")
     
 })
 app.get('/css',(req,res)=>{
@@ -28,7 +28,6 @@ app.get('/js',(req,res)=>{
     res.status(200).sendFile(path.join(__dirname, '../public/main.js'))
 
 })
-
 
 
 
